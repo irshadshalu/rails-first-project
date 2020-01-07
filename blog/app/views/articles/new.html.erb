@@ -1,0 +1,22 @@
+<h1> Create a new blog post </h1>
+
+<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+    <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %> 
+    </p>
+
+    <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %> 
+    </p>
+
+    <p>
+    <%= f.label :post_date %><br>
+    <%= f.date_field :post_date %> 
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+<% end %>
