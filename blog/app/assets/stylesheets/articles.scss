@@ -1,0 +1,49 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+$font-stack: "Source Code Pro",monospace;
+$primary-color: #DBDBDB;
+$bg-color: #000;
+$default-padding: 10px;
+$danger-color: #F00;
+
+body {
+  font: 100% $font-stack;
+  background-color: $bg-color;
+  color: $primary-color;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+}
+
+.td-title {
+    width: 60%;
+}
+
+.td-date {
+    width: 30%;
+}
+
+.blog-container, .list-container, .container {
+    border-right: dashed 1px $primary-color;
+    border-left: dashed 1px $primary-color;
+    border-bottom: dashed 1px $primary-color;
+    padding: $default-padding;
+}
+
+a {
+    text-decoration: underline;
+    color: $primary-color;
+}
+
+a:hover {
+    color: $primary-color;
+    background-color: $primary-color;
+    color: $bg-color;
+}
+
+.field_with_errors {
+    color: $danger-color;
+}

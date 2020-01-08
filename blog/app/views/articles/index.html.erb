@@ -1,0 +1,16 @@
+<div class='list-container' align='center'>
+    <h3>One Weird Blog</h3>
+
+    <table class='list-articles'>
+    <% @articles.each do |article| %>
+        <tr>
+            <td class='td-title'><%= link_to article.title, article_path(article) %></td>
+            <td class='td-date'><%= article.post_date %></td>
+            <td class='td-edit'><%= link_to 'Edit', edit_article_path(article) %></td>
+        </tr>
+    <% end %>
+    </table>
+    <div align='left'>
+        <%= link_to 'New Blog', new_article_path %>
+    </div>
+</div>
