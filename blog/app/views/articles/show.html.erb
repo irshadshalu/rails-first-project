@@ -2,14 +2,20 @@
     <div align='left'>
         <%= link_to 'Home', articles_path %>
     </div>
-    <p align='center'>
+
     <h3 align='center'>
         <%= @article.title %>
     </h3>
+
+    <p align='right'>
+        <%= link_to 'Edit', edit_article_path %>
+        <%= link_to 'Delete', article_path(@article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
     </p>
 
     <p align='right'>
-    <i><%= @article.post_date %></i>
+        <i><%= @article.post_date %></i>
     </p>
 
     <p>

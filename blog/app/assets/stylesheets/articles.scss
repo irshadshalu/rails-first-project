@@ -5,6 +5,7 @@ $font-stack: "Source Code Pro",monospace;
 $primary-color: #DBDBDB;
 $bg-color: #000;
 $default-padding: 10px;
+$danger-color: #F00;
 
 body {
   font: 100% $font-stack;
@@ -41,4 +42,8 @@ a:hover {
     color: $primary-color;
     background-color: $primary-color;
     color: $bg-color;
+}
+
+.field_with_errors {
+    color: $danger-color;
 }
