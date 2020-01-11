@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params)
+        print(@article)
+        @article.user_id = current_user.id
 
         if @article.save
             redirect_to @article
@@ -41,6 +43,8 @@ class ArticlesController < ApplicationController
 
         redirect_to articles_path
     end
+
+    before_action :authenticate_user!, :except => [:index, :show]
 end
 
 private

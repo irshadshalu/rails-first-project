@@ -1,14 +1,13 @@
 <div class='blog-container'>
-    <div align='left'>
-        <%= link_to 'Home', articles_path %>
-    </div>
-
     <h3 align='center'>
         <%= @article.title %>
     </h3>
 
     <p align='right'>
-        <%= link_to 'Edit', edit_article_path %>
+        <% if @article.user %>
+            Posted by <%= @article.user.email %> |
+        <% end %>
+        <%= link_to 'Edit', edit_article_path %> |
         <%= link_to 'Delete', article_path(@article),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>

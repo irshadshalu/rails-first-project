@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  root to: "articles#index"
+  devise_for :users
+  get '/', to: redirect('/articles')
 
   resources :articles do
     resources :comments
   end
 
-  root 'home#index'
+  resources :users do
+    resources :articles
+  end
 end
