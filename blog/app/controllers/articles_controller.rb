@@ -2,9 +2,9 @@ class ArticlesController < ApplicationController
     def index
         if(params[:user_id])
             @user = User.find(params[:user_id])
-            @articles = @user.articles
+            @articles = @user.articles.paginate(page: params[:page], per_page: 10).order('created_at DESC')
         else
-            @articles = Article.all
+            @articles = Article.paginate(page: params[:page], per_page: 10).order('created_at DESC')
         end
     end
 
