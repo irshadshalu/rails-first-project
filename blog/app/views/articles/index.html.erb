@@ -1,5 +1,7 @@
 <div class='list-container' align='center'>
-    <h3>One Weird Blog</h3>
+    <% if @user %>
+        <h3>Posts by <%= @user.name %></h3>
+    <% end %>
 
     <table class='list-articles'>
     <% @articles.each do |article| %>
@@ -10,7 +12,5 @@
         </tr>
     <% end %>
     </table>
-    <div align='left'>
-        <%= link_to 'New Blog', new_article_path %>
-    </div>
+    <%= link_to 'New Post', new_article_path %>
 </div>

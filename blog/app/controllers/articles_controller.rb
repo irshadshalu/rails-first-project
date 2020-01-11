@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
     def index
-        @articles = Article.all
+        if(params[:user_id])
+            @user = User.find(params[:user_id])
+            @articles = @user.articles
+        else
+            @articles = Article.all
+        end
     end
 
     def show
@@ -17,6 +22,8 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params)
+        print(@article)
+        @article.user_id = current_user.id
 
         if @article.save
             redirect_to @article
@@ -41,9 +48,19 @@ class ArticlesController < ApplicationController
 
         redirect_to articles_path
     end
+
+    before_action :authenticate_user!, :except => [:index, :show]
+    before_action :authenticate_modify_access, :only => [:edit, :destroy]
 end
 
 private
-  def article_params
-    params.require(:article).permit(:title, :content, :post_date)
-  end
+    def article_params
+        params.require(:article).permit(:title, :content, :post_date)
+    end
+
+    def authenticate_modify_access
+        @article = Article.find(params[:id])
+        if current_user.is_admin or @article.user != current_user
+            redirect_to(root_path, :alert => "Permission Denied") and return
+        end
+    end

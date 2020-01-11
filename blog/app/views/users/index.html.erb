@@ -1,0 +1,11 @@
+<div class='list-container' align='center'>
+    <h3>Everyone...</h3>
+
+    <table class='list-users'>
+    <% @users.each_with_index do |user, index| %>
+        <tr>
+            <td><%= index + 1 %>. <%= link_to user.email, user_path(user) %></td>
+        </tr>
+    <% end %>
+    </table>
+</div>

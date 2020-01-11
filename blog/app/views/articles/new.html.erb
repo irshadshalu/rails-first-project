@@ -1,8 +1,4 @@
 <div class='container'>
-    <div align='left'>
-        <%= link_to 'Home', articles_path %>
-    </div>
-
     <h3> Write a new post </h3>
 
     <%= form_with scope: :article, url: articles_path, local: true do |f| %>
@@ -21,22 +17,22 @@
         <% end %>
 
         <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
+            <%= f.label :title %><br>
+            <%= f.text_field :title %>
         </p>
 
         <p>
-        <%= f.label :content %><br>
-        <%= f.text_area :content, cols: "30", rows: "10" %>
+            <%= f.label :content %><br>
+            <%= f.text_area :content, cols: "30", rows: "10" %>
         </p>
 
         <p>
-        <%= f.label :post_date %><br>
-        <%= f.date_field :post_date %>
+            <%= f.label :post_date %><br>
+            <%= f.date_field :post_date %>
         </p>
 
         <p>
-        <%= f.submit %>
+            <%= f.submit %>
         </p>
     <% end %>
 </div>
