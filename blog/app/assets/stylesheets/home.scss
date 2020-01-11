@@ -4,6 +4,21 @@
 .float-right {
     float: right;
 }
+
 .navbar-text {
     font-size: 0.7em;
+}
+
+.alert {
+    margin: 5px;
+    padding: 5px;
+    border: 1px dashed white;
+}
+
+.alert-danger {
+    color: red;
+}
+
+.alert-success {
+    color: green;
 }

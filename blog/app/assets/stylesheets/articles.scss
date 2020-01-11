@@ -47,3 +47,8 @@ a:hover {
 .field_with_errors {
     color: $danger-color;
 }
+
+.title {
+    padding: $default-padding;
+    border-left: 0.5px dashed $primary-color;
+}

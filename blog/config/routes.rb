@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "articles#index"
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get '/', to: redirect('/articles')
 
   resources :articles do

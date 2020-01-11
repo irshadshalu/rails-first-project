@@ -5,12 +5,14 @@
 
     <p align='right'>
         <% if @article.user %>
-            Posted by <%= @article.user.email %> |
+            Posted by <%= link_to @article.user.email, user_path(@article.user) %> |
         <% end %>
-        <%= link_to 'Edit', edit_article_path %> |
-        <%= link_to 'Delete', article_path(@article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+        <% if current_user and (@article.user == current_user or current_user.is_admin) %>
+            <%= link_to 'Edit', edit_article_path %> |
+            <%= link_to 'Delete', article_path(@article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+        <% end %>
     </p>
 
     <p align='right'>
@@ -20,8 +22,9 @@
     <p>
     <%= @article.content %>
     </p>
-
-    <h3>Comments</h3>
+    <% if @article.comments.length > 0 %>
+        <h4 class='title'>Comments</h4>
+    <% end %>
     <%= render @article.comments %>
 
     <%= render 'comments/form' %>
